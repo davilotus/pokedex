@@ -8,8 +8,6 @@ export function Searchbar() {
   const [search, setSearch] = useState([]);
   const [pokemons, setPokemons] = useState([]);
 
-  let inputFocus = false;
-
   const getPokemons = async () => {
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon?limit=100000`
@@ -24,7 +22,7 @@ export function Searchbar() {
     setInputSearch(term);
 
     const resultSearch = pokemons.filter((pokemon) => {
-      return pokemon?.name.includes(inputSearch.toLowerCase());
+      return pokemon?.name.includes(term.toLowerCase());
     });
 
     setSearch(resultSearch);
@@ -32,23 +30,24 @@ export function Searchbar() {
 
   useEffect(() => {
     getPokemons();
-  }, []);
+  }, [inputSearch]);
 
   return (
     <S.SearcWrap>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()} autoComplete="off">
         <S.Input
           type="search"
           value={inputSearch}
           placeholder="Find your Pokémon"
+          name="search"
+          required
           onChange={(e) => {
             onSearch(e.target.value);
           }}
         />
-        <S.SubmitInput type="submit" value="Search" />
       </form>
 
-      {search && (
+      {search && inputSearch && (
         <S.ResultsWrap>
           {search.map((pokemon, key) => {
             return (
