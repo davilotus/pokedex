@@ -17,7 +17,7 @@ export const Input = styled.input.attrs({
   font-size: 1rem;
   padding: 10px;
   font-size: 1rem;
-  width: calc(100% - 100px);
+  width: 100%;
 `;
 
 export const SubmitInput = styled(Input).attrs({
@@ -30,11 +30,29 @@ export const SubmitInput = styled(Input).attrs({
 export const ResultsWrap = styled.div`
   position: absolute;
   background: #3a3a3a;
-  width: calc(100% - 110px);
+  width: 100%;
   z-index: 4;
   overflow-y: scroll;
   max-height: 300px;
   margin-top: 10px;
+  border-radius: 4px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #888;
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
 
   a {
     display: block;
@@ -46,10 +64,3 @@ export const ResultsWrap = styled.div`
     }
   }
 `;
-
-// export const Input = styled.input.attrs({
-//   type: 'submit',
-// })`
-//   padding: 10px 20px;
-//   font-size: 1rem;
-// `;
