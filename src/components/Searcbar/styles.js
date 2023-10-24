@@ -58,9 +58,12 @@ export const ResultsWrap = styled.div`
     display: block;
     text-align: left;
     padding: 5px 10px;
+    opacity: 0.6;
 
     &:hover {
       background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      opacity: 1;
     }
   }
 `;
