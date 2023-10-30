@@ -3,20 +3,21 @@ import { Link } from 'react-router-dom';
 import { ArrowLeftIcon, HeartIcon } from '@heroicons/react/24/outline';
 import PokemomLogo from '../../../public/img/pokemon.png';
 
+import { Container } from '../../global-styles';
 import * as S from './styles';
 
 export function Header({ back = false }) {
   return (
     <S.Header>
-      <div className="container">
+      <Container>
         <S.HeaderWrap>
-          <Link to={-1}>
+          <Link to="/">
             <img src={PokemomLogo} alt="Pokémon Logo" />
           </Link>
 
           <S.Navigation>
             {back ? (
-              <Link to="/">
+              <Link to={-1}>
                 <ArrowLeftIcon />
                 Back
               </Link>
@@ -26,7 +27,7 @@ export function Header({ back = false }) {
             </Link>
           </S.Navigation>
         </S.HeaderWrap>
-      </div>
+      </Container>
     </S.Header>
   );
 }

@@ -41,9 +41,10 @@ export const Navigation = styled.div`
 
   a {
     color: #fff;
+    opacity: 0.6;
 
     &:hover {
-      color: var(--pink-500);
+      opacity: 1;
     }
   }
 `;

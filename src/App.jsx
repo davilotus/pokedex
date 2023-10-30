@@ -6,6 +6,8 @@ import { Pagination } from './components/Pagination/Pagination';
 import { PokemonCard } from './components/PokemonCard/PokemonCard';
 import { Searchbar } from './components/Searcbar/Searchbar';
 
+import { Container, H1 } from './global-styles';
+
 export function App() {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState('');
@@ -31,8 +33,8 @@ export function App() {
     <>
       <Header back={false} />
 
-      <div className="container">
-        <h1>Pokedéx</h1>
+      <Container>
+        <H1>Pokedéx</H1>
         <Searchbar />
 
         {pokemons ? (
@@ -48,7 +50,7 @@ export function App() {
         ) : (
           <div>Nenhum pokemóm encontrado</div>
         )}
-      </div>
+      </Container>
 
       <Author />
     </>

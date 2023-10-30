@@ -1,11 +1,13 @@
 import { useContext } from 'react';
-
 import { Link } from 'react-router-dom';
+
+import { FavoritesContext } from '../../providers/FavoritesContext';
 
 import { Author } from '../../components/Author/Author';
 import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
-import { FavoritesContext } from '../../providers/FavoritesContext';
 import { Header } from './../../components/Header/Header';
+
+import { Container, H1 } from '../../global-styles';
 
 export function Favorites() {
   const { favorites } = useContext(FavoritesContext);
@@ -13,8 +15,8 @@ export function Favorites() {
     <>
       <Header back={true} />
 
-      <div className="container">
-        <h1>Favorites</h1>
+      <Container>
+        <H1>Favorites</H1>
 
         {favorites.length ? (
           <div className="pokemon-list">
@@ -28,7 +30,7 @@ export function Favorites() {
             <Link to="/">Back to Pokemóns</Link>
           </>
         )}
-      </div>
+      </Container>
 
       <Author />
     </>
