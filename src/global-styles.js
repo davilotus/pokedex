@@ -61,17 +61,8 @@ export const GlobalStyles = createGlobalStyle`
     min-height: calc(100vh - 160px);
   }
 
-  h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-  }
-
   #root {
     width: 100%;
-    /* max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 15px; */
   }
 
   .card {
@@ -79,36 +70,48 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .pokemon-list {
-    /* display: flex;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    */
-    
     display: grid;
     gap: 20px;
     justify-content: flex-start;
     grid-template-columns: repeat(5, 1fr);
-  }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 15px;
+    @media (max-width: 1199px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 575px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 `;
 
+export const H1 = styled.h1`
+  font-size: 3.2rem;
+`;
+
 export const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   text-align: center;
   padding: 0 15px;
 
-  &.pokemon-list {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+  @media (max-width: 1400px) {
+    max-width: 1140px;
+  }
+
+  @media (max-width: 1199px) {
+    max-width: 960px;
+  }
+
+  @media (max-width: 991px) {
+    max-width: 720px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 540px;
   }
 `;

@@ -6,7 +6,7 @@ export function Pagination({ prevUrl, nextUrl, setUrl }) {
   return (
     <>
       {nextUrl || prevUrl ? (
-        <S.Pagination className="pagination">
+        <S.Pagination>
           {prevUrl && (
             <button
               type="button"

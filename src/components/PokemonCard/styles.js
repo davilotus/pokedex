@@ -169,7 +169,7 @@ export const PokemomCard = styled.div.attrs((props) => ({
     }
 
     .bubble {
-      transform: scale(7);
+      transform: scale(8);
       opacity: 0.3;
     }
 

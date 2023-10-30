@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Author } from '../../components/Author/Author.jsx';
 import { Favorite } from '../../components/Favotite/Favorite.jsx';
 import { Header } from '../../components/Header/Header.jsx';
 
 import Load from '../../../public/img/load.gif';
 
-import { Author } from '../../components/Author/Author.jsx';
+import { Container, H1 } from '../../global-styles.js';
 import * as S from './styles.js';
 
 export function Pokemon() {
@@ -37,9 +38,11 @@ export function Pokemon() {
   return (
     <>
       <Header back={true} />
-      <div className="container">
+      <Container>
         <S.PokemonWrap>
-          <S.Image>
+          <S.Image
+            className={pokemon?.types ? pokemon?.types[0]?.type?.name : ''}
+          >
             <Favorite
               pokemon={{
                 name: pokemon.name,
@@ -49,9 +52,9 @@ export function Pokemon() {
             <img src={pokemonImage} alt={pokemon.name} />
           </S.Image>
           <div className="info">
-            <h1>
+            <H1>
               #{pokemon.id} {pokemon.name}
-            </h1>
+            </H1>
 
             {stats && (
               <S.Ul>
@@ -72,7 +75,7 @@ export function Pokemon() {
             )}
           </div>
         </S.PokemonWrap>
-      </div>
+      </Container>
 
       <Author />
     </>
